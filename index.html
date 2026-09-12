@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="su">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulasi Interaktif Warta - Basa Sunda Kelas 8</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f4f7fb;
+        color: #263238;
+    }
+
+    header {
+        background: #315f72;
+        color: white;
+        padding: 25px;
+        text-align: center;
+    }
+
+    header h1 {
+        margin: 0 0 8px;
+    }
+
+    .container {
+        max-width: 1000px;
+        margin: 25px auto;
+        padding: 0 20px;
+    }
+
+    .alur {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 25px;
+        flex-wrap: wrap;
+    }
+
+    .step {
+        flex: 1;
+        min-width: 150px;
+        background: white;
+        border-radius: 12px;
+        padding: 15px;
+        text-align: center;
+        box-shadow: 0 3px 10px rgba(0,0,0,.08);
+        border: 2px solid #dce5ea;
+    }
+
+    .step.active {
+        border-color: #315f72;
+        background: #eaf4f7;
+    }
+
+    .step span {
+        display: block;
+        font-size: 30px;
+        margin-bottom: 5px;
+    }
+
+    .card {
+        background: white;
+        border-radius: 15px;
+        padding: 25px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 15px rgba(0,0,0,.08);
+    }
+
+    h2 {
+        color: #315f72;
+    }
+
+    label {
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 7px;
+        font-weight: bold;
+    }
+
+    input, textarea, select {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccd6dc;
+        border-radius: 8px;
+        font-size: 15px;
+    }
+
+    textarea {
+        min-height: 100px;
+        resize: vertical;
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 8px;
+        background: #315f72;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        opacity: .9;
+    }
+
+    .hasil {
+        display: none;
+        margin-top: 20px;
+        padding: 20px;
+        border-radius: 10px;
+        background: #f1f8fa;
+        border-left: 5px solid #315f72;
+    }
+
+    .indikator {
+        padding: 12px;
+        margin: 8px 0;
+        border-radius: 8px;
+    }
+
+    .benar {
+        background: #e5f6e9;
+        border-left: 5px solid #3c8d40;
+    }
+
+    .perbaiki {
+        background: #fff4d6;
+        border-left: 5px solid #d99a00;
+    }
+
+    .skor {
+        font-size: 25px;
+        font-weight: bold;
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .konsep {
+        background: #f7fafc;
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 15px;
+    }
+
+    .struktur-box {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .struktur {
+        padding: 15px;
+        text-align: center;
+        border-radius: 10px;
+        background: #eaf1f5;
+        font-weight: bold;
+    }
+
+    @media(max-width:700px) {
+        .struktur-box {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>📰 Simulasi Interaktif Warta</h1>
+    <p>Basa Sunda – Kelas VIII</p>
+</header>
+
+<div class="container">
+
+    <!-- ALUR PEMBELAJARAN -->
+    <div class="alur">
+
+        <div class="step active">
+            <span>💡</span>
+            <b>Ide</b>
+            <small>Nangtukeun gagasan</small>
+        </div>
+
+        <div class="step">
+            <span>🏷️</span>
+            <b>Téma</b>
+            <small>Nangtukeun jejer</small>
+        </div>
+
+        <div class="step">
+            <span>📝</span>
+            <b>Struktur</b>
+            <small>Nyusun warta</small>
+        </div>
+
+        <div class="step">
+            <span>🔎</span>
+            <b>Cek</b>
+            <small>Nguji kasaluyuan</small>
+        </div>
+
+    </div>
+
+    <!-- KONSEP -->
+    <div class="card">
+
+        <h2>📚 Hayu Ngartos Konsep Warta</h2>
+
+        <p>
+            <b>Warta</b> nyaéta tulisan atawa béja anu nepikeun informasi
+            ngeunaan hiji kajadian anu nyata sarta penting pikeun dipikanyaho ku balaréa.
+        </p>
+
+        <div class="konsep">
+
+            <b>Struktur Warta:</b>
+
+            <div class="struktur-box">
+                <div class="struktur">Judul</div>
+                <div class="struktur">Teras / Bubuka</div>
+                <div class="struktur">Eusi</div>
+                <div class="struktur">Panutup</div>
+            </div>
+
+        </div>
+
+        <div class="konsep">
+
+            <b>Unsur Warta (5W + 1H):</b>
+
+            <ul>
+                <li><b>Naon</b> – naon kajadianana?</li>
+                <li><b>Saha</b> – saha anu kalibet?</li>
+                <li><b>Iraha</b> – iraha kajadianana?</li>
+                <li><b>Di mana</b> – di mana tempatna?</li>
+                <li><b>Naha</b> – naha éta kajadian?</li>
+                <li><b>Kumaha</b> – kumaha lumangsungna?</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <!-- INPUT SISWA -->
+    <div class="card">
+
+        <h2>💡 Tahap 1 – Jieun Ide Warta</h2>
+
+        <p>
+            Pikirkeun hiji kajadian anu nyata jeung bisa dijadikeun bahan warta.
+        </p>
+
+        <label>Ide Warta</label>
+        <textarea id="ide"
+            placeholder="Conto: Sakola ngayakeun kagiatan beberesih lingkungan..."></textarea>
+
+
+        <label>Téma Warta</label>
+        <input id="tema"
+            placeholder="Conto: Lingkungan">
+
+
+        <label>Judul Samentara</label>
+        <input id="judul"
+            placeholder="Conto: Siswa SMP Ngaberesihan Lingkungan Sakola">
+
+
+        <label>Struktur anu rék dipaké</label>
+        <select id="struktur">
+
+            <option value="">
+                -- Pilih struktur --
+            </option>
+
+            <option value="lengkap">
+                Judul → Teras/Bubuka → Eusi → Panutup
+            </option>
+
+            <option value="tidaklengkap">
+                Judul → Eusi
+            </option>
+
+            <option value="acak">
+                Struktur can ditangtukeun
+            </option>
+
+        </select>
+
+
+        <button onclick="cekWarta()">
+            🔎 Cek Kasaluyuan Warta
+        </button>
+
+
+        <!-- HASIL -->
+        <div id="hasil" class="hasil">
+
+            <h2>📊 Hasil Analisis</h2>
+
+            <div id="pesan"></div>
+
+            <div id="skor" class="skor"></div>
+
+            <h3>💡 Saran</h3>
+
+            <p id="saran"></p>
+
+        </div>
+
+    </div>
+
+
+    <!-- REFLEKSI -->
+    <div class="card">
+
+        <h2>🪞 Refleksi</h2>
+
+        <p>
+            Sanggeus ngalakukeun simulasi, coba jawab dina pikiran:
+        </p>
+
+        <ul>
+            <li>Naon ide warta anu rék ku kuring dijieun?</li>
+            <li>Naha téma kuring geus luyu jeung ide?</li>
+            <li>Naha struktur warta geus lengkep?</li>
+            <li>Unsur 5W + 1H naon anu masih kudu dilengkepan?</li>
+        </ul>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function cekWarta() {
+
+    let ide = document.getElementById("ide").value.trim();
+    let tema = document.getElementById("tema").value.trim();
+    let judul = document.getElementById("judul").value.trim();
+    let struktur = document.getElementById("struktur").value;
+
+    let hasil = document.getElementById("hasil");
+    let pesan = document.getElementById("pesan");
+    let skorBox = document.getElementById("skor");
+    let saran = document.getElementById("saran");
+
+    hasil.style.display = "block";
+
+    let skor = 0;
+    let output = [];
+    let saranList = [];
+
+    // CEK IDE
+    if (ide.length >= 20) {
+
+        skor += 25;
+
+        output.push(
+            `<div class="indikator benar">
+                ✅ <b>Ide geus cukup jelas.</b><br>
+                Ide warta anjeun geus bisa dijadikeun dasar pikeun ngamekarkeun warta.
+            </div>`
+        );
+
+    } else {
+
+        output.push(
+            `<div class="indikator perbaiki">
+                ⚠️ <b>Ide masih kurang jelas.</b><br>
+                Coba tuliskeun kajadian anu nyata, leuwih husus, sarta bisa dipikanyaho ku balaréa.
+            </div>`
+        );
+
+        saranList.push(
+            "Perjelas ide ku nyebutkeun kajadian anu nyata."
+        );
+    }
+
+
+    // CEK TEMA
+    if (tema.length >= 3) {
+
+        skor += 25;
+
+        output.push(
+            `<div class="indikator benar">
+                ✅ <b>Téma geus dieusian.</b><br>
+                Téma bisa dijadikeun jejer utama dina warta.
+            </div>`
+        );
+
+    } else {
+
+        output.push(
+            `<div class="indikator perbaiki">
+                ⚠️ <b>Téma can jelas.</b><br>
+                Tentukeun jejer utama tina ide warta anjeun.
+            </div>`
+        );
+
+        saranList.push(
+            "Tulis téma anu ngagambarkeun jejer utama."
+        );
+    }
+
+
+    // CEK JUDUL
+    if (judul.length >= 5) {
+
+        skor += 25;
+
+        output.push(
+            `<div class="indikator benar">
+                ✅ <b>Judul geus aya.</b><br>
+                Judul bisa dipaké minangka gambaran awal ngeunaan eusi warta.
+            </div>`
+        );
+
+    } else {
+
+        output.push(
+            `<div class="indikator perbaiki">
+                ⚠️ <b>Judul can lengkep.</b><br>
+                Jieun judul anu singket, jelas, sarta ngagambarkeun kajadian.
+            </div>`
+        );
+
+        saranList.push(
+            "Jieun judul anu singket jeung jelas."
+        );
+    }
+
+
+    // CEK STRUKTUR
+    if (struktur === "lengkap") {
+
+        skor += 25;
+
+        output.push(
+            `<div class="indikator benar">
+                ✅ <b>Struktur geus lengkep.</b><br>
+                Struktur ngawengku judul, teras/bubuka, eusi, jeung panutup.
+            </div>`
+        );
+
+    } else {
+
+        output.push(
+            `<div class="indikator perbaiki">
+                ⚠️ <b>Struktur can lengkep.</b><br>
+                Warta anu hadé perlu miboga struktur anu jelas.
+            </div>`
+        );
+
+        saranList.push(
+            "Gunakeun struktur: Judul → Teras/Bubuka → Eusi → Panutup."
+        );
+    }
+
+
+    pesan.innerHTML = output.join("");
+
+    skorBox.innerHTML =
+        "Skor Kasaluyuan: " + skor + "/100";
+
+
+    if (skor === 100) {
+
+        saran.innerHTML =
+            "🎉 Sae pisan! Ide, téma, judul, jeung struktur geus saluyu. Salajengna, lengkepan unsur 5W + 1H.";
+
+    } else {
+
+        saran.innerHTML =
+            saranList.join("<br>");
+    }
+
+}
+
+</script>
+
+</body>
+</html>
